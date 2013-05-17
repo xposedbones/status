@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Status Message</title>
+	<link rel="stylesheet" href="css/alert.min.css">
+</head>
+<body>
+	<span class="statusMessage success"><strong>Lorem ipsum </strong>dolor sit amet, consectetur adipisicing elit. <strong>Porro, quisquam</strong>, consequatur, aut, magni blanditiis similique inventore dolore non vero<button>×</button></span>
+	<span class="statusMessage attention"><strong>Lorem ipsum </strong>dolor sit amet, consectetur adipisicing elit. <strong>Porro, quisquam</strong>, consequatur, aut, magni blanditiis similique inventore dolore non vero<button>×</button></span>
+	<span class="statusMessage alert"><strong>Lorem ipsum </strong>dolor sit amet, consectetur adipisicing elit. <strong>Porro, quisquam</strong>, consequatur, aut, magni blanditiis similique inventore dolore non vero<button>×</button></span>
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		jQuery(".statusMessage button").click(function(){
+			jQuery(this).parent().slideUp();
+		});
+	</script>
+</body>
+</html>

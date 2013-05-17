@@ -1,0 +1,54 @@
+/* Reset padding and margin */
+
+
+
+.bgkAlpha(@color: #000000, @a:1){
+	@p: @a*100;
+	background-color: @color;
+	background-color: fade(@color,@p);	
+}
+
+// font handler
+.font(@name:'Arial',@weight:'400', @fallback: "helvetica, sans-serif"){
+	font-family: @name, @fallback;
+	font-weight:@weight;
+}
+
+
+/* border radius */
+	.border-radius (@radius: 5px) {
+		-webkit-border-radius: @radius;
+		-moz-border-radius: @radius;
+		border-radius: @radius;
+	}
+
+
+	.box-shadow-in-white (@x: 0px, @y: 3px, @blur: 5px, @spread:0 , @alpha: 0.5) {
+		-webkit-box-shadow:inset @x @y @blur @spread rgba(255,255,255, @alpha);
+		-moz-box-shadow:inset @x @y @blur @spread rgba(255,255,255, @alpha);
+		box-shadow:inset @x @y @blur @spread rgba(255,255,255, @alpha);
+	}
+
+/* Text-shadow */
+	.text-shadow (@x: 0px, @y: 1px, @blur: 1px, @color: #000) {
+		text-shadow: @x @y @blur @color;
+		filter: dropshadow(color=@color, offx=@x, offy=@y);
+	}
+
+
+/* gradient */
+	.gradient (@origin: left, @start: #ffffff, @stop: #000000) {
+		// @gradientType: 1;
+		// @gradientType: ~`if( @origin==="top" ) {return 0}`;
+
+		background-color: @start;
+	
+		background-image: -webkit-linear-gradient(@origin, @start, @stop);
+		background-image: -moz-linear-gradient(@origin, @start, @stop);
+		background-image: -o-linear-gradient(@origin, @start, @stop);
+		background-image: -ms-linear-gradient(@origin, @start, @stop);
+		background-image: linear-gradient(@origin, @start, @stop);
+		// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@start, endColorstr=@stop,GradientType=0);
+		  filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@start,@stop));
+	}
+ 
