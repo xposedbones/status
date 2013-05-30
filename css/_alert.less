@@ -1,0 +1,87 @@
+// @import "_mixins.less";
+
+
+// Main red color
+@mainColor: #9e0303;
+
+@green-dark:#89ba21;
+@green-light:#99cd2b;
+@yellow-dark:#f3dc93;
+@yellow-light:#feedbf;
+@red-dark:@mainColor;
+@red-light:#c51313;
+
+.statusMessage
+{
+	button
+	{
+		position: absolute;
+		background: transparent;
+		border: 0;
+		right: 5px;
+		top: 5px;
+		font-weight: 700;
+		color: @color;
+		cursor:pointer;
+	}
+
+	border-width:1px;
+	border-style: solid;
+
+		@color: #fff;
+		.bgkAlpha(@color, 0.5);
+		.boxshadow(1px,2px,5px,0,0.2);
+		
+		// border-top: 1px solid white;
+		display: block;
+		padding: 6px 10px 7px 10px;
+		margin: 10px 0;
+
+		.border-radius(7px);
+		position: relative;
+
+		.font("Arial", 400);
+		.box-shadow-in-white(0px,1px,0px,0,0.5);
+
+	&.error{
+		border-color: darken(@red-dark,2%);
+
+		.gradient(top, @red-light, @mainColor);
+		color: #fbf4f3;
+		.text-shadow(0px,2px,1px,darken(@red-dark,10%));
+		&:hover{
+			background:@mainColor;
+		}
+		button{
+			.text-shadow(0px,2px,1px,darken(@red-dark,10%));
+		}
+	}
+	&.attention{
+		border-color: darken(@yellow-dark,10%);
+
+		.gradient(top, @yellow-light, @yellow-dark);
+
+		color: @txtcolor;
+		.text-shadow(0px,1px,0px,#ffffff);
+
+		&:hover{
+			background:@yellow-dark;
+		}
+		button{
+			color: @txtcolor;
+			.text-shadow(0px,1px,0px,#ffffff);
+		}
+	}
+	&.success{
+		border-color: darken(@green-dark,10%);
+		.gradient(bottom, @green-dark, @green-light);
+		color: #fbf4f3;
+		.text-shadow(0px,2px,1px,darken(@green-light,20%));
+		&:hover{
+			background:@green-dark;
+		}
+		button{
+			.text-shadow(0px,2px,1px,darken(@green-light,20%));
+		}
+	}
+}
